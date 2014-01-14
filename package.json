@@ -1,0 +1,19 @@
+{
+  "name": "token-manager",
+  "version": "0.0.1",
+  "description": "Module to manage, expire and validate access tokens",
+  "main": "lib/main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "keywords": [
+    "token",
+    "authenticator",
+    "expiration"
+  ],
+  "author": "Jeff Sanches",
+  "license": "ISC"
+}
