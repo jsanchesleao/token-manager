@@ -55,7 +55,9 @@ new Token({
 ```
 
 ** clientId: A String containing the client id. Required.
+
 ** tokenString: A String containing the token data. Required.
+
 ** expiration: The expiration time for the token in milliseconds. Required.
 
 * expire()
