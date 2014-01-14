@@ -15,5 +15,9 @@
     "expiration"
   ],
   "author": "Jeff Sanches",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": "https://github.com/jsanchesleao/token-manager.git",
+  "devDependencies": {
+    "mocha": "~1.17.0"
+  }
 }
