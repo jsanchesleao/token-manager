@@ -99,3 +99,67 @@ tokenManager.get( tokenString );
 ```
 
 Checks for the token in the registry. It also refreshes the token lifecycle. Blocking.
+
+
+Integration with token-manager-server
+-------------------------------------
+
+You can access a [token-manager-server](https://github.com/jsanchesleao/token-manager-server "TokenManagerServer") instance by using by using the client API provided out of the box:
+
+```javascript
+    var tm = require('token-manager')
+
+    var client = new tm.TokenManagerClient({
+        endpoint: 'http://yourserver/token',
+        timeout: 30000                          // defaults to 10000
+    });
+
+    /* example of sending a token */
+    client.put( new tm.Token({
+        clientId: 'jeff',
+        tokenString: 'abcd',
+        expiration: 30000
+    }), function(error, data){
+        console.log('posted the token')
+    });
+
+    /* example of getting a token */
+    client.get( 'abc', function(error, data){
+        console.log('clientId is: ' + data.clientId);
+    });
+```
+
+### TokenManagerClient
+
+* constructor
+
+```javascript
+new TokenManager(config);
+```
+
+Accepts a config object with the following fields:
+
+endpoint: a string with the complete tokenManagerServer endpoint
+timeout: in milliseconds. Defaults to 10000.
+
+* put(token, callback);
+
+```javascript
+tokenManager.put( aToken, function(error, data){
+    if(error) throw error;
+    console.log(data);
+});
+```
+
+Saves the token in the server. Returns a data object containing the same tokenString and clientId of the token passed.
+
+* get(tokenString);
+
+```javascript
+tokenManager.get( tokenString, function(error, data){
+    if(error) throw error;
+    console.log(data);
+});
+```
+
+Recover a token from the server. The data object returned contains tokenString and clientId.
