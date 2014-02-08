@@ -153,7 +153,7 @@ tokenManagerClient.put( aToken, function(error, data){
 
 Saves the token in the server. Returns a data object containing the same tokenString and clientId of the token passed.
 
-* get(tokenString);
+* get(tokenString, callback);
 
 ```javascript
 tokenManagerClient.get( tokenString, function(error, data){
