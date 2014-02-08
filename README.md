@@ -134,7 +134,7 @@ You can access a [token-manager-server](https://github.com/jsanchesleao/token-ma
 * constructor
 
 ```javascript
-new TokenManager(config);
+new TokenManagerClient(config);
 ```
 
 Accepts a config object with the following fields:
@@ -145,7 +145,7 @@ timeout: in milliseconds. Defaults to 10000.
 * put(token, callback);
 
 ```javascript
-tokenManager.put( aToken, function(error, data){
+tokenManagerClient.put( aToken, function(error, data){
     if(error) throw error;
     console.log(data);
 });
@@ -156,7 +156,7 @@ Saves the token in the server. Returns a data object containing the same tokenSt
 * get(tokenString);
 
 ```javascript
-tokenManager.get( tokenString, function(error, data){
+tokenManagerClient.get( tokenString, function(error, data){
     if(error) throw error;
     console.log(data);
 });
