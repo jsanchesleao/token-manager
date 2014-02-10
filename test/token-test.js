@@ -45,6 +45,22 @@ describe('Token', function(){
             }
         });
 
+        it('throws error if roles field is not an array', function(){
+            try{
+                new Token({
+                    clientId: 'test',
+                    tokenString: 'abc',
+                    expiration: 3000,
+                    roles: 'not an array'
+                });
+                assert.fail();
+            }
+            catch(e){
+                assert.equal(e.message, 'Roles field must be an array');
+            }
+
+        });
+
         it('has a positive number as expiration time', function(){
             try{
                 new Token({
@@ -117,4 +133,26 @@ describe('Token', function(){
             },10);
         })
     })
+
+    describe('Roles', function(){
+        it('Creates an empty array if no roles field is passed during creation', function(){
+            var token = new Token({
+                clientId: 'test',
+                tokenString: 'abc',
+                expiration: 3000
+            });
+            assert.equal(token.roles.length, 0);
+        });
+
+        it('Checks if token contains arbitrary roles', function(){
+            var token = new Token({
+                clientId: 'test',
+                tokenString: 'abc',
+                expiration: 3000,
+                roles: ['admin']
+            });
+            assert.ok( token.is('admin') );
+            assert.ok( !token.is('client') );
+        })
+    });
 })

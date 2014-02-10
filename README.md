@@ -50,7 +50,8 @@ API
 new Token({
     clientId: 'id',
     tokenString: 'abcd',
-    expiration: 1000
+    expiration: 1000,
+    roles: ['client', 'admin']
 });
 ```
 
@@ -59,6 +60,8 @@ new Token({
 ** tokenString: A String containing the token data. Required.
 
 ** expiration: The expiration time for the token in milliseconds. Required.
+
+** roles: An array containing roles associated with the clientId. Optional.
 
 * expire()
 
@@ -75,6 +78,14 @@ token.visit();
 ```
 
 Refreshes the lifecycle of the token, meaning it stops the current expiration cycle, and start another one.
+
+* is(role)
+
+```javascript
+token.is('admin')
+```
+Returns true if the token contains a given role.
+
 
 ### TokenManager
 
@@ -98,7 +109,7 @@ Saves the token in the registry. Returns nothing. Blocking.
 tokenManager.get( tokenString );
 ```
 
-Checks for the token in the registry. It also refreshes the token lifecycle. Blocking.
+Checks for the token in the registry. It also refreshes the token lifecycle. Blocking. Returns a token object
 
 
 Integration with token-manager-server
