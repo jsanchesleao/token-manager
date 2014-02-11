@@ -149,7 +149,7 @@ You can access a [token-manager-server](https://github.com/jsanchesleao/token-ma
 
     /* example of getting a token */
     client.get( 'abc', function(error, data){
-        console.log('clientId is: ' + data.clientId);
+        console.log('clientId is: ' + data.getClientId());
     });
 ```
 
@@ -187,3 +187,5 @@ tokenManagerClient.get( tokenString, function(error, data){
 ```
 
 Recover a token from the server. The data object returned contains tokenString and clientId.
+
+The recovered token has no info about expiration time.
