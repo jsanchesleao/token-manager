@@ -141,7 +141,7 @@ describe('Token', function(){
                 tokenString: 'abc',
                 expiration: 3000
             });
-            assert.equal(token.roles.length, 0);
+            assert.equal(token.getRoles().length, 0);
         });
 
         it('Checks if token contains arbitrary roles', function(){

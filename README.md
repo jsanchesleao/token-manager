@@ -22,7 +22,8 @@ var tokenManager = new tm.TokenManager();
 var myToken = new tm.Token({
     clientId: 'some_client',                //set client id
     tokenString: 'dG9rZW5tYW5hZ2VyCgo=',    //set token content
-    expiration: 10 * 60 * 1000              //set the expiration time, in milliseconds
+    expiration: 10 * 60 * 1000,             //set the expiration time, in milliseconds
+    roles: ['admin']
 });
 
 tokenManager.put(myToken);                  //register the token
@@ -62,6 +63,18 @@ new Token({
 ** expiration: The expiration time for the token in milliseconds. Required.
 
 ** roles: An array containing roles associated with the clientId. Optional.
+
+* getClientId()
+
+Returns the given client id.
+
+* getTokenString()
+
+Returns the given token string
+
+* getRoles()
+
+Returns the given roles. An empty array is returned if no role was given.
 
 * expire()
 
