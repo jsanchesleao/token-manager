@@ -163,8 +163,8 @@ new TokenManagerClient(config);
 
 Accepts a config object with the following fields:
 
-** endpoint: a string with the complete tokenManagerServer endpoint
-** timeout: in milliseconds. Defaults to 10000.
+endpoint: a string with the complete tokenManagerServer endpoint <br />
+timeout: in milliseconds. Defaults to 10000.
 
 * put(token, callback);
 
